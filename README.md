@@ -37,16 +37,16 @@ taxonomies:
       enabled: true
       name: NCBI Taxonomy
     - id: discoverlife
-      enabled: true
+      enabled: false
       name: Discover Life Taxonomy
     - id: batnames
-      enabled: false
+      enabled: true
       name: Bat Names 
     - id: col
-      enabled: false
+      enabled: true
       name: Catalogue of Life
     - id: gbif
-      enabled: false
+      enabled: true
       name: GBIF Backbone Taxonomy
     - id: globi
       enabled: false
@@ -55,7 +55,7 @@ taxonomies:
       enabled: false
       name: Index Fungorum
     - id: mdd
-      enabled: false
+      enabled: true
       name: Mammal Diversity Database
     - id: ott
       enabled: false
