@@ -8,7 +8,7 @@ set -xe
 
 COMPLETE_TSV_HASH=$(preston track file://${PWD}/input/Complete.tsv | grep -oP "hash://sha256/[a-f0-9]{64}" | tail -n1)
 
-NAME_COLUMNS=$(preston cat ${COMPLETE_TSV_HASH} | head -n1 | tr '\t' '\n' | grep -oiP "^name_[a-zA-Z]+")
+NAME_COLUMNS=$(preston cat ${COMPLETE_TSV_HASH} | head -n1 | tr '\t' '\n' | grep -oiP "^name_[a-zA-Z0-9]+")
 
 preston cat ${COMPLETE_TSV_HASH}\
  | mlr --tsvlite cut -f $(echo ${NAME_COLUMNS} | tr ' ' ',')\
