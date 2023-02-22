@@ -4,14 +4,14 @@
 # is assumed to be a local file in working directory
 datasets:
     - url: names.csv
-      enabled: true
+      enabled: false
       type: text/csv
     - id: mdd
       enabled: false
       name: Mammal Diversity Database
       type: application/nomer
-    - url: https://example.org/data.tsv
-      enabled: false
+    - url: names.tsv
+      enabled: true
       type: text/tab-separated-values
     - url: https://serv.biokic.asu.edu/ecdysis/content/dwca/UCSB-IZC_DwC-A.zip
       enabled: false
