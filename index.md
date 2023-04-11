@@ -1,9 +1,6 @@
 ---
 layout: home
 ---
-
-# Bat Taxonomic Alignment (BTA)
-
 by Aja Sherman, Cullen Geiselman, et al. 
 
 ⚠️  work in progress ⚠️
