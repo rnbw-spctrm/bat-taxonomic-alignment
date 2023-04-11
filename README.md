@@ -78,18 +78,9 @@ taxonomies:
 
 [![Name Alignment by Nomer](../../actions/workflows/align.yml/badge.svg)](../../actions/workflows/align.yml)
 
-:warning: work in progress :warning:
+⚠️  work in progress ⚠️
 
 Aligning bat names across taxonomic authorities is a labor intensive task. 
 
 This repository relates the Bat Taxonomic Alignment by Aja Sherman, Cullen Geiselman, et al. to associated names in taxonomic resources like those provided by [Bat Names](https://batnames.org), [Mammal Diversity Database](https://mammaldiversity.org), Handbook of the Mammals of the World, Mammal Species of the World, and more. 
-
-
-|treatmentId|name|accordingTo
-|---|---|---|
-{%- for name in site.names %}
-|[{{ name.treatmentId }}]({{ name.treatmentId }}) | {{ name.scientificName }} | {{ name.id }} |
-{%- endfor %}
-
-
 
