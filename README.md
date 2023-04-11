@@ -10,7 +10,7 @@ datasets:
       enabled: false
       name: Mammal Diversity Database
       type: application/nomer
-    - url: names.tsv
+    - url: _data/names.tsv
       enabled: true
       type: text/tab-separated-values
     - url: https://serv.biokic.asu.edu/ecdysis/content/dwca/UCSB-IZC_DwC-A.zip
