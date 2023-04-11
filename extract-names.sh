@@ -14,7 +14,7 @@ preston cat ${COMPLETE_TSV_HASH}\
  | nl\
  | sed -E "s/^\s+//g"\
  | sed -E "s/^1\t/treatmentId\t/g"\
- | sed "s+^+https://linker.bio/line:${COMPLETE_TSV_HASH}!/L1,L+g"\
+ | sed -E "s+^([0-9]*)+https://linker.bio/line:${COMPLETE_TSV_HASH}!/L1,L\1.tsv+g"\
  | sed "s+.*treatmentId+treatmentId+g"\
  | mlr --tsvlite cut -r -f $NAME_COLUMN_PATTERN,treatmentId\
  | mlr --itsvlite --ocsv reshape -r ${NAME_COLUMN_PATTERN} -o accordingTo,scientificName\
