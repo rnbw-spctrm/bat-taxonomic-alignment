@@ -13,9 +13,7 @@ The `name` and `accordingTo` columns contain a name as recognized by some name a
 
 Do you have questions or suggestions? Please [edit this page](https://github.com/jhpoelen/bat-taxonomic-alignment/edit/main/index.md), [join our weekly meeting](https://globalbioticinteractions.org/covid19), or [open an issue](https://github.com/jhpoelen/bat-taxonomic-alignment/issues/new).
 
-For more information, go [here](https://github.com/jhpoelen/bat-taxonomic-alignment).
-
-[tsv](https://raw.githubusercontent.com/jhpoelen/bat-taxonomic-alignment/main/_data/names.tsv) / [csv](https://raw.githubusercontent.com/jhpoelen/bat-taxonomic-alignment/main/_data/names.csv) / [json](https://raw.githubusercontent.com/jhpoelen/bat-taxonomic-alignment/main/_data/names.json)
+Download table as [tsv](https://raw.githubusercontent.com/jhpoelen/bat-taxonomic-alignment/main/_data/names.tsv), [csv](https://raw.githubusercontent.com/jhpoelen/bat-taxonomic-alignment/main/_data/names.csv), or [json](https://raw.githubusercontent.com/jhpoelen/bat-taxonomic-alignment/main/_data/names.json).
 
 |treatmentId|name|accordingTo|
 |---|---|---|
