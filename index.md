@@ -11,6 +11,8 @@ The Bat Taxonomic Alignment (BTA) formulates "treatment" for each known bat. Eac
 
 The `name` and `accordingTo` columns contain a name as recognized by some name authority (e.g., batnames, MMD, HMW, MSW). Each treatment has multiple associates names from the various name authorities. Name values with `**` signify that a name authority appeared not to have a name for a particular treatment.
 
+Do you have questions or suggestions? Please [edit this page](https://github.com/jhpoelen/bat-taxonomic-alignment/edit/main/index.md), [join our weekly meeting](https://globalbioticinteractions.org/covid19), or [open an issue](https://github.com/jhpoelen/bat-taxonomic-alignment/issues/new).
+
 For more information, go [here](https://github.com/jhpoelen/bat-taxonomic-alignment).
 
 [tsv](https://raw.githubusercontent.com/jhpoelen/bat-taxonomic-alignment/main/_data/names.tsv) / [csv](https://raw.githubusercontent.com/jhpoelen/bat-taxonomic-alignment/main/_data/names.csv) / [json](https://raw.githubusercontent.com/jhpoelen/bat-taxonomic-alignment/main/_data/names.json)
