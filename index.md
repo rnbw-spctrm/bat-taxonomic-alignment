@@ -18,13 +18,14 @@ Do you have questions or suggestions? Please [edit this page](https://github.com
 
 <br/>
 
-<table><caption>Table 1. <em>BTA Agreement matrix. Each cell indicates the number of concept agreements the catalogs have in common. Total number of concepts in BTA is <span id="totalConcepts">-</span>.</em></caption><thead id="matrixHeader"></thead><tbody id="matrix"></tbody></table>
+{%- assign BTA = site.data.names | first | map: "treatmentId" | split: "sha256/" | last | slice: 0,8 | prepend: "BTA@" %}
+
+<table><caption>Table 1. <em>{{ BTA }} agreement matrix. Each cell indicates the number of concept agreements across catalog pairs. Total number of concepts in {{ BTA }} is <b><span id="totalConcepts">-</span></b>.</em></caption><thead id="matrixHeader"></thead><tbody id="matrix"></tbody></table>
 
 
-Download table as [tsv](https://raw.githubusercontent.com/jhpoelen/bat-taxonomic-alignment/main/_data/names.tsv), [csv](https://raw.githubusercontent.com/jhpoelen/bat-taxonomic-alignment/main/_data/names.csv), or [json](https://raw.githubusercontent.com/jhpoelen/bat-taxonomic-alignment/main/_data/names.json).
 
 <table>
-  <caption>Table 2. <em>BTA treatments, agreement index, and their associated names. The agreement index is ratio of the number of pairwise agreements for a concept versus the total number of possible pairwise agreements. </em></caption>
+  <caption>Table 2. <em>{{ BTA }} treatments, agreement index, and their associated names. The agreement index is ratio of the number of pairwise agreements for a concept versus the total number of possible pairwise agreements. Download table as <a href="https://raw.githubusercontent.com/jhpoelen/bat-taxonomic-alignment/main/_data/names.tsv">tsv</a>, <a href="https://raw.githubusercontent.com/jhpoelen/bat-taxonomic-alignment/main/_data/names.csv">csv</a>, or <a href="https://raw.githubusercontent.com/jhpoelen/bat-taxonomic-alignment/main/_data/names.json">json</a>.</em></caption>
   <thead><th>treatmentId</th><th>agreementIndex</th><th>name</th><th>accordingTo</th></thead>
   <tbody>
 {%- for name in site.data.names %}
