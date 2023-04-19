@@ -13,11 +13,93 @@ The `name` and `accordingTo` columns contain a name as recognized by some name a
 
 Do you have questions or suggestions? Please [edit this page](https://github.com/jhpoelen/bat-taxonomic-alignment/edit/main/index.md), [join our weekly meeting](https://globalbioticinteractions.org/covid19), or [open an issue](https://github.com/jhpoelen/bat-taxonomic-alignment/issues/new).
 
+
+<bold>status:</bold><div id="status">Agreement Index values calculating...</div>
+
+<br/>
+
+<table><caption>Table 1. <em>BTA Agreement matrix. Each cell indicates the number of concept agreements the catalogs have in common. Total number of concepts in BTA is <span id="totalConcepts">-</span>.</em></caption><thead id="matrixHeader"></thead><tbody id="matrix"></tbody></table>
+
+
 Download table as [tsv](https://raw.githubusercontent.com/jhpoelen/bat-taxonomic-alignment/main/_data/names.tsv), [csv](https://raw.githubusercontent.com/jhpoelen/bat-taxonomic-alignment/main/_data/names.csv), or [json](https://raw.githubusercontent.com/jhpoelen/bat-taxonomic-alignment/main/_data/names.json).
 
-|treatmentId|name|accordingTo|
-|---|---|---|
+<table>
+  <caption>Table 2. <em>BTA treatments, agreement index, and their associated names. The agreement index is ratio of the number of pairwise agreements for a concept versus the total number of possible pairwise agreements. </em></caption>
+  <thead><th>treatmentId</th><th>agreementIndex</th><th>name</th><th>accordingTo</th></thead>
+  <tbody>
 {%- for name in site.data.names %}
-| [{{ name.treatmentId | split: ",L" | last | split: "." | first | prepend: "BTA:" }}{{ name.treatmentId | split: "sha256/" | last | slice: 0,8 | prepend: "@" }}]({{ name.treatmentId }}) | *{{ name.scientificName }}* | {{ name.accordingTo }} |
+{%- assign conceptId = name.treatmentId | split: ",L" | last | split: "." | first | prepend: "BTA_" %}
+    <tr>
+<td><a href="{{ name.treatmentId }}">{{ conceptId }}{{ name.treatmentId | split: "sha256/" | last | slice: 0,8 | prepend: "@" }}</a></td><td> <div class="{{ conceptId }}"/></td><td> <em>{{ name.scientificName }}</em></td><td> {{ name.accordingTo }}</td>
+    </tr>
 {%- endfor %}
+  </tbody>
+</table>
 
+<script>
+  var concepts = {{ site.data.names-wide | jsonify }};
+
+  document.querySelector("#totalConcepts").textContent = concepts.length;
+
+  var matchesTotal = {};
+  
+  var agreementIndex = concepts.forEach(function(concept) {
+    const catalogNames = Object
+        .keys(concept)
+        .filter(function(key) { return key.match(/^name.*/) != null; })
+        .sort();
+    
+    const matches = [];
+    for (var i = 0; i < catalogNames.length; i++) {
+      for (var j = i+1; j < catalogNames.length; j++) {  
+        const nameA = concept[catalogNames[i]];
+        const nameB = concept[catalogNames[j]];
+        const agreementValue =  nameA === nameB ? 1 : 0;
+        matches.push(agreementValue);
+        const totalKey = catalogNames[i] + '*' + catalogNames[j]; 
+        matchesTotal[totalKey] = (matchesTotal[totalKey] | 0) + agreementValue;
+      }
+    }
+    const nameAgreementIndex = 1.0 * matches.reduce(function(item, accum) { return item + accum; }, 0) / matches.length;
+
+    const conceptId = concept.treatmentId.match(/(.*)(L)(?<conceptId>[0-9]+)[.]tsv$/).groups.conceptId;
+  
+    const setAgreementIndex = function(item) {
+      document
+        .querySelectorAll('.' + item.conceptId)
+        .forEach(function(elem) { elem.textContent = item.agreementIndex; });
+    };
+ 
+    setAgreementIndex( {
+      conceptId: 'BTA_' + conceptId,
+      agreementIndex: nameAgreementIndex.toFixed(1),
+      catalogs: catalogNames
+    });
+  });
+
+  var catalogsMatched = Object
+    .keys(matchesTotal)
+    .reduce(function (accum, key) { 
+       key.split("*").forEach(function(item) { if (accum.indexOf(item) == -1) { accum.push(item); } });
+       return accum }, [])
+    .sort();
+
+  
+
+  document.querySelector('#matrixHeader').appendChild(document.createElement("th"));
+ 
+  catalogsMatched.forEach(function (catalogA) {
+    var catalogName = catalogA.replace(/^name[ _]/, '');
+    document.querySelector('#matrixHeader').appendChild(document.createElement("th")).textContent = catalogName;
+    var row = document.querySelector('#matrix').appendChild(document.createElement("tr"));
+    row.appendChild(document.createElement("td")).textContent = catalogName;
+    catalogsMatched.forEach(function (catalogB) {
+      var cell = row.appendChild(document.createElement("td"));
+      cell.textContent = matchesTotal[catalogA + "*" + catalogB] || '-'; 
+    }); 
+  });
+
+  document.querySelector('#status').textContent = 'Agreement Index values calculation done.';
+
+
+</script>
