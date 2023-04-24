@@ -47,7 +47,7 @@ Do you have questions or suggestions? Please [edit this page](https://github.com
   var agreementIndex = concepts.forEach(function(concept) {
     const catalogNames = Object
         .keys(concept)
-        .filter(function(key) { return key.match(/^name.*/) != null; })
+        .filter(function(key) { return key.match(/^Name.*/) != null; })
         .sort();
     
     const matches = [];
@@ -90,7 +90,7 @@ Do you have questions or suggestions? Please [edit this page](https://github.com
   document.querySelector('#matrixHeader').appendChild(document.createElement("th"));
  
   catalogsMatched.forEach(function (catalogA) {
-    var catalogName = catalogA.replace(/^name[ _]/, '');
+    var catalogName = catalogA.replace(/^Name[ _]/, '');
     document.querySelector('#matrixHeader').appendChild(document.createElement("th")).textContent = catalogName;
     var row = document.querySelector('#matrix').appendChild(document.createElement("tr"));
     row.appendChild(document.createElement("td")).textContent = catalogName;
