@@ -6,10 +6,7 @@
 
 set -xe
 
-#COMPLETE_TSV_HASH=$(preston track file://${PWD}/input/For_Pub.tsv | grep -oE "hash://sha256/[a-f0-9]{64}" | tail -n1)
-COMPLETE_TSV_HASH=hash://sha256/981b8f9ece76eb4418fe82e8dfa077165943fe1d63103fa4a25f21a2d7881e75
-
-
+COMPLETE_TSV_HASH=hash://sha256/306cd3c999895af317044442e86fac33769ce178f6670b050683ca0ea80e6c67
 
 NAME_COLUMN_PATTERN='^Name[_\s][0-9a-zA-Z]+'
 
