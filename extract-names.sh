@@ -19,4 +19,4 @@ preston cat ${COMPLETE_TSV_HASH}\
  | sed "s+.*treatmentId+treatmentId+g"\
  | mlr --tsvlite cut -r -f $NAME_COLUMN_PATTERN,treatmentId\
  | mlr --itsvlite --ocsv reshape -r ${NAME_COLUMN_PATTERN} -o accordingTo,scientificName\
- | mlr --csv sort -f treatmentId
+ | mlr --tsvlite sort -f treatmentId
