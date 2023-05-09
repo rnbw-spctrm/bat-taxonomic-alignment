@@ -107,8 +107,8 @@ Do you have questions or suggestions? Please [edit this page](https://github.com
          .querySelector('#map')
          .appendChild(document.createElement('div'));
        applyColorsForIndex(square, item.agreementIndex);
-       square.style.width = '0.5em';
-       square.style.height = '0.5em';
+       square.style.width = '0.7em';
+       square.style.height = '0.7em';
        square.setAttribute('title', 'click to jump to [' + item.conceptId + ']');
        square.addEventListener(
          "click", 
