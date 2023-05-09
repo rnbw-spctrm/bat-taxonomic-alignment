@@ -7,6 +7,17 @@ by Aja Sherman, Cullen Geiselman, et al.
 
 ⚠️  work in progress ⚠️
 
+Include 
+
+ name | description 
+ ---  | ---
+ [bta.xlsx](./bta.xlsx) | description here
+ [google sheet](https://docs.google.com/spreadsheets/d/1JSIr4GJX26LnF6WEl_jvrP6eAiRJc32XbIseeC_Y9DM/) | description here
+ [bta.tsv](./bta.tsv) | description here
+ [bta.csv](./bta.csv) | description here
+ [bta.json](./bta.json) | description here
+
+
 The table below is an exhaustive list of known bats and how they are named.
 
 The Bat Taxonomic Alignment (BTA) formulates "treatment" for each known bat. Each treatment has a unique id. You can get associated data in tab-separate values (TSV) for a treatment by clicking on their corresponding taxonomic id link. 
