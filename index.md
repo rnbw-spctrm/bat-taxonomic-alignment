@@ -27,9 +27,14 @@ The `name` and `accordingTo` columns contain a name as recognized by some name a
 Do you have questions or suggestions? Please [edit this page](https://github.com/jhpoelen/bat-taxonomic-alignment/edit/main/index.md), [join our weekly meeting](https://globalbioticinteractions.org/covid19), or [open an issue](https://github.com/jhpoelen/bat-taxonomic-alignment/issues/new).
 
 
-<bold>status:</bold><div id="status">Agreement Index values calculating...</div>
+<b>status:</b><span id="status">Agreement Index values calculating...</span>
 
+<figure>
+  <figcaption>Figure 1. <em>A clickable heatmap containing all BTA concepts and their associated agreement index.</em> Yellow/light colors indicate more agreement, green/dark shades indicate less agreement.</em></figcaption>
+  <div id="map" style="display: flex; flex-direction: row; flex-wrap: wrap;"></div>
+</figure>
 <br/>
+
 
 {%- assign BTA = site.data.names | first | map: "treatmentId" | split: "sha256/" | last | slice: 0,8 | prepend: "BTA@" %}
 
@@ -43,12 +48,13 @@ Do you have questions or suggestions? Please [edit this page](https://github.com
   <tbody>
 {%- for name in site.data.names %}
 {%- assign conceptId = name.treatmentId | split: ",L" | last | split: "." | first | prepend: "BTA_" %}
-    <tr>
+    <tr id="{{ conceptId }}">
 <td><a href="{{ name.treatmentId }}">{{ conceptId }}{{ name.treatmentId | split: "sha256/" | last | slice: 0,8 | prepend: "@" }}</a></td><td> <div class="{{ conceptId }}"/></td><td> <em>{{ name.scientificName }}</em></td><td> {{ name.accordingTo }}</td>
     </tr>
 {%- endfor %}
   </tbody>
 </table>
+
 
 <script src="assets/js/viridis.js"></script>
 
@@ -62,7 +68,9 @@ Do you have questions or suggestions? Please [edit this page](https://github.com
   var mismatchesTotal = {};
  
   const applyColorsForIndex = function(elem, agreementIndex) { 
-    elem.setAttribute("style", "text-align: center; background: " + viridis(agreementIndex) + "; color: " + (agreementIndex > 0.75 ? "black" : "white") + ";"); 
+    elem.style["text-align"] = "center";
+    elem.style.background = viridis(agreementIndex);
+    elem.style.color = agreementIndex > 0.75 ? "black" : "white"; 
   }
  
   var agreementIndex = concepts.forEach(function(concept) {
@@ -94,13 +102,29 @@ Do you have questions or suggestions? Please [edit this page](https://github.com
           elem.textContent = item.agreementIndex; 
           applyColorsForIndex(elem, item.agreementIndex);
        });
+
+       const square = document
+         .querySelector('#map')
+         .appendChild(document.createElement('div'));
+       applyColorsForIndex(square, item.agreementIndex);
+       square.style.width = '0.5em';
+       square.style.height = '0.5em';
+       square.setAttribute('title', 'click to jump to [' + item.conceptId + ']');
+       square.addEventListener(
+         "click", 
+         function () { console.log(item); document.querySelector('#' + item.conceptId).scrollIntoView(); }, 
+         false
+       );
     };
  
     setAgreementIndex( {
+      treatmentId: concept.treatmentId,
       conceptId: 'BTA_' + conceptId,
       agreementIndex: nameAgreementIndex.toFixed(1),
       catalogs: catalogNames
     });
+
+
   });
 
   var catalogsMatched = Object
