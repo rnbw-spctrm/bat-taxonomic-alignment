@@ -62,6 +62,7 @@ Do you have questions or suggestions? Please [edit this page](https://github.com
         .sort();
     
     const matches = [];
+    const mismatches = [];
     for (var i = 0; i < catalogNames.length; i++) {
       for (var j = i+1; j < catalogNames.length; j++) {  
         const nameA = concept[catalogNames[i]];
@@ -70,6 +71,7 @@ Do you have questions or suggestions? Please [edit this page](https://github.com
         matches.push(agreementValue);
         const totalKey = catalogNames[i] + '*' + catalogNames[j]; 
         matchesTotal[totalKey] = (matchesTotal[totalKey] | 0) + agreementValue;
+        mismatchesTotal[totalKey] = (mismatchesTotal[totalKey] | 0) + (1 - agreementValue);
       }
     }
     const nameAgreementIndex = 1.0 * matches.reduce(function(item, accum) { return item + accum; }, 0) / matches.length;
@@ -107,7 +109,7 @@ Do you have questions or suggestions? Please [edit this page](https://github.com
     row.appendChild(document.createElement("td")).textContent = catalogName;
     catalogsMatched.forEach(function (catalogB) {
       var cell = row.appendChild(document.createElement("td"));
-      cell.textContent = matchesTotal[catalogA + "*" + catalogB] || '-'; 
+      cell.textContent = mismatchesTotal[catalogA + "*" + catalogB] || '-'; 
     }); 
   });
 
