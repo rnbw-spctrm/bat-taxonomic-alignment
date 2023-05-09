@@ -76,7 +76,7 @@ taxonomies:
 
 [![Name Alignment by Nomer](../../actions/workflows/align.yml/badge.svg)](../../actions/workflows/align.yml)
 
-<a href="https://doi.org/10.5281/zenodo.7915722"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.7915722.svg"/></a>
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7915722.svg)](https://doi.org/10.5281/zenodo.7915722) 
 
 ⚠️  work in progress ⚠️
 
