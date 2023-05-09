@@ -31,12 +31,12 @@ Do you have questions or suggestions? Please [edit this page](https://github.com
 
 {%- assign BTA = site.data.names | first | map: "treatmentId" | split: "sha256/" | last | slice: 0,8 | prepend: "BTA@" %}
 
-<table><caption>Table 1. <em>{{ BTA }} agreement matrix. Each cell indicates the number of concept agreements across catalog pairs. Total number of concepts in {{ BTA }} is <b><span id="totalConcepts">-</span></b>.</em></caption><thead id="matrixHeader"></thead><tbody id="matrix"></tbody></table>
+<table><caption>Table 1. <em>{{ BTA }} agreement matrix. Each cell indicates the number of concept <b>dis</b>agreements across catalog pairs. Total number of concepts in {{ BTA }} is <b><span id="totalConcepts">-</span></b>.</em> Yellow/light colors indicate more agreement, green/dark shades indicate less agreement.</caption><thead id="matrixHeader"></thead><tbody id="matrix"></tbody></table>
 
 
 
 <table>
-  <caption>Table 2. <em>{{ BTA }} treatments, agreement index, and their associated names. The agreement index is ratio of the number of pairwise agreements for a concept versus the total number of possible pairwise agreements. Download table (minus agreement index) as <a href="https://raw.githubusercontent.com/jhpoelen/bat-taxonomic-alignment/main/_data/names.tsv">tsv</a>, <a href="https://raw.githubusercontent.com/jhpoelen/bat-taxonomic-alignment/main/_data/names.csv">csv</a>, or <a href="https://raw.githubusercontent.com/jhpoelen/bat-taxonomic-alignment/main/_data/names.json">json</a>.</em></caption>
+  <caption>Table 2. <em>{{ BTA }} treatments, agreement index, and their associated names. The agreement index is ratio of the number of pairwise agreements for a concept versus the total number of possible pairwise agreements. Yellow/light colors indicate more agreement, green/dark shades indicate less agreement. Download table (minus agreement index) as <a href="https://raw.githubusercontent.com/jhpoelen/bat-taxonomic-alignment/main/_data/names.tsv">tsv</a>, <a href="https://raw.githubusercontent.com/jhpoelen/bat-taxonomic-alignment/main/_data/names.csv">csv</a>, or <a href="https://raw.githubusercontent.com/jhpoelen/bat-taxonomic-alignment/main/_data/names.json">json</a>.</em></caption>
   <thead><th>treatmentId</th><th>agreementIndex</th><th>name</th><th>accordingTo</th></thead>
   <tbody>
 {%- for name in site.data.names %}
@@ -48,14 +48,21 @@ Do you have questions or suggestions? Please [edit this page](https://github.com
   </tbody>
 </table>
 
+<script src="assets/js/viridis.js"></script>
+
 <script>
+
   var concepts = {{ site.data.names-wide | jsonify }};
 
   document.querySelector("#totalConcepts").textContent = concepts.length;
 
   var matchesTotal = {};
   var mismatchesTotal = {};
-  
+ 
+  const applyColorsForIndex = function(elem, agreementIndex) { 
+    elem.setAttribute("style", "text-align: center; background: " + viridis(agreementIndex) + "; color: " + (agreementIndex > 0.75 ? "black" : "white") + ";"); 
+  }
+ 
   var agreementIndex = concepts.forEach(function(concept) {
     const catalogNames = Object
         .keys(concept)
@@ -81,7 +88,10 @@ Do you have questions or suggestions? Please [edit this page](https://github.com
     const setAgreementIndex = function(item) {
       document
         .querySelectorAll('.' + item.conceptId)
-        .forEach(function(elem) { elem.textContent = item.agreementIndex; });
+        .forEach(function(elem) { 
+          elem.textContent = item.agreementIndex; 
+          applyColorsForIndex(elem, item.agreementIndex);
+       });
     };
  
     setAgreementIndex( {
@@ -109,7 +119,14 @@ Do you have questions or suggestions? Please [edit this page](https://github.com
     row.appendChild(document.createElement("td")).textContent = catalogName;
     catalogsMatched.forEach(function (catalogB) {
       var cell = row.appendChild(document.createElement("td"));
-      cell.textContent = mismatchesTotal[catalogA + "*" + catalogB] || '-'; 
+      const mismatchCount = mismatchesTotal[catalogA + "*" + catalogB];
+      if (mismatchCount) {
+          cell.textContent = mismatchCount;
+          const agreementIndex = 1 - 1.0 * mismatchCount / concepts.length;
+          applyColorsForIndex(cell, agreementIndex);
+      } else {
+          cell.textContent = "-";
+      }
     }); 
   });
 
