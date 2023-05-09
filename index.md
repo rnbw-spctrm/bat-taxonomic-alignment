@@ -3,6 +3,8 @@ layout: home
 ---
 by Aja Sherman, Cullen Geiselman, et al. 
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7915722.svg)](https://doi.org/10.5281/zenodo.7915722) 
+
 ⚠️  work in progress ⚠️
 
 The table below is an exhaustive list of known bats and how they are named.
