@@ -7,8 +7,6 @@ by Aja Sherman, Cullen Geiselman, et al.
 
 ⚠️  work in progress ⚠️
 
-Include 
-
  name | description 
  ---  | ---
  [bta.xlsx](./bta.xlsx) | description here
