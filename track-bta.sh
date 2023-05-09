@@ -10,6 +10,6 @@
 
 set -xe
 
-preston track file://${PWD}/input/For_Pub_carriage_return_as_whitespace.tsv\
+preston track file://${PWD}/input/Zenodo_BTA_v0.1_carriage_return_as_whitespace.tsv\
  | grep -oE "hash://sha256/[a-f0-9]{64}"\
  | tail -n1

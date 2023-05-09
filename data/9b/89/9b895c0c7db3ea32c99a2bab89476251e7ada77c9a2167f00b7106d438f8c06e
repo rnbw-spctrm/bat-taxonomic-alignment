@@ -1,0 +1,20 @@
+<https://preston.guoda.bio> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#SoftwareAgent> <urn:uuid:1a4659fa-841a-4090-81fb-57cd241b75a4> .
+<https://preston.guoda.bio> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Agent> <urn:uuid:1a4659fa-841a-4090-81fb-57cd241b75a4> .
+<https://preston.guoda.bio> <http://purl.org/dc/terms/description> "Preston is a software program that finds, archives and provides access to biodiversity datasets."@en <urn:uuid:1a4659fa-841a-4090-81fb-57cd241b75a4> .
+<urn:uuid:1a4659fa-841a-4090-81fb-57cd241b75a4> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Activity> <urn:uuid:1a4659fa-841a-4090-81fb-57cd241b75a4> .
+<urn:uuid:1a4659fa-841a-4090-81fb-57cd241b75a4> <http://purl.org/dc/terms/description> "A crawl event that discovers biodiversity archives."@en <urn:uuid:1a4659fa-841a-4090-81fb-57cd241b75a4> .
+<urn:uuid:1a4659fa-841a-4090-81fb-57cd241b75a4> <http://www.w3.org/ns/prov#startedAtTime> "2023-05-09T13:55:06.639Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> <urn:uuid:1a4659fa-841a-4090-81fb-57cd241b75a4> .
+<urn:uuid:1a4659fa-841a-4090-81fb-57cd241b75a4> <http://www.w3.org/ns/prov#wasStartedBy> <https://preston.guoda.bio> <urn:uuid:1a4659fa-841a-4090-81fb-57cd241b75a4> .
+<https://doi.org/10.5281/zenodo.1410543> <http://www.w3.org/ns/prov#usedBy> <urn:uuid:1a4659fa-841a-4090-81fb-57cd241b75a4> <urn:uuid:1a4659fa-841a-4090-81fb-57cd241b75a4> .
+<https://doi.org/10.5281/zenodo.1410543> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/dcmitype/Software> <urn:uuid:1a4659fa-841a-4090-81fb-57cd241b75a4> .
+<https://doi.org/10.5281/zenodo.1410543> <http://purl.org/dc/terms/bibliographicCitation> "Jorrit Poelen, Icaro Alzuru, & Michael Elliott. 2021. Preston: a biodiversity dataset tracker (Version 0.6.3-SNAPSHOT) [Software]. Zenodo. http://doi.org/10.5281/zenodo.1410543"@en <urn:uuid:1a4659fa-841a-4090-81fb-57cd241b75a4> .
+<urn:uuid:0659a54f-b713-4f86-a917-5be166a14110> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Entity> <urn:uuid:1a4659fa-841a-4090-81fb-57cd241b75a4> .
+<urn:uuid:0659a54f-b713-4f86-a917-5be166a14110> <http://purl.org/dc/terms/description> "A biodiversity dataset graph archive."@en <urn:uuid:1a4659fa-841a-4090-81fb-57cd241b75a4> .
+<hash://sha256/f33efc4c0c79f47acddd92527a854513c6bb726c67c7c9d92c69e1ff532aaf2e> <http://www.w3.org/ns/prov#usedBy> <urn:uuid:1a4659fa-841a-4090-81fb-57cd241b75a4> <urn:uuid:1a4659fa-841a-4090-81fb-57cd241b75a4> .
+<hash://sha256/26d368c772f240d65645248caa56dabae5cb2414ac57e8f0438d4c3dcf62e377> <http://www.w3.org/ns/prov#wasGeneratedBy> <urn:uuid:15e377ed-533f-4bf9-a770-8bccf93ce1e3> <urn:uuid:15e377ed-533f-4bf9-a770-8bccf93ce1e3> .
+<hash://sha256/26d368c772f240d65645248caa56dabae5cb2414ac57e8f0438d4c3dcf62e377> <http://www.w3.org/ns/prov#qualifiedGeneration> <urn:uuid:15e377ed-533f-4bf9-a770-8bccf93ce1e3> <urn:uuid:15e377ed-533f-4bf9-a770-8bccf93ce1e3> .
+<urn:uuid:15e377ed-533f-4bf9-a770-8bccf93ce1e3> <http://www.w3.org/ns/prov#generatedAtTime> "2023-05-09T13:55:06.983Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> <urn:uuid:15e377ed-533f-4bf9-a770-8bccf93ce1e3> .
+<urn:uuid:15e377ed-533f-4bf9-a770-8bccf93ce1e3> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Generation> <urn:uuid:15e377ed-533f-4bf9-a770-8bccf93ce1e3> .
+<urn:uuid:15e377ed-533f-4bf9-a770-8bccf93ce1e3> <http://www.w3.org/ns/prov#wasInformedBy> <urn:uuid:1a4659fa-841a-4090-81fb-57cd241b75a4> <urn:uuid:15e377ed-533f-4bf9-a770-8bccf93ce1e3> .
+<urn:uuid:15e377ed-533f-4bf9-a770-8bccf93ce1e3> <http://www.w3.org/ns/prov#used> <file:///home/jorrit/proj/aja-alignment/name-alignment-bats/input/Zenodo_BTA_v0.1_carriage_return_as_whitespace.tsv> <urn:uuid:15e377ed-533f-4bf9-a770-8bccf93ce1e3> .
+<file:///home/jorrit/proj/aja-alignment/name-alignment-bats/input/Zenodo_BTA_v0.1_carriage_return_as_whitespace.tsv> <http://purl.org/pav/hasVersion> <hash://sha256/26d368c772f240d65645248caa56dabae5cb2414ac57e8f0438d4c3dcf62e377> <urn:uuid:15e377ed-533f-4bf9-a770-8bccf93ce1e3> .
