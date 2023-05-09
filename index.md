@@ -54,6 +54,7 @@ Do you have questions or suggestions? Please [edit this page](https://github.com
   document.querySelector("#totalConcepts").textContent = concepts.length;
 
   var matchesTotal = {};
+  var mismatchesTotal = {};
   
   var agreementIndex = concepts.forEach(function(concept) {
     const catalogNames = Object
@@ -62,7 +63,6 @@ Do you have questions or suggestions? Please [edit this page](https://github.com
         .sort();
     
     const matches = [];
-    const mismatches = [];
     for (var i = 0; i < catalogNames.length; i++) {
       for (var j = i+1; j < catalogNames.length; j++) {  
         const nameA = concept[catalogNames[i]];
