@@ -78,6 +78,8 @@ taxonomies:
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7915722.svg)](https://doi.org/10.5281/zenodo.7915722) 
 
+[![SWH](https://archive.softwareheritage.org/badge/swh:1:dir:9ba2b7ef8c75873d945ccfd19845df28778e7da8/)](https://archive.softwareheritage.org/swh:1:dir:9ba2b7ef8c75873d945ccfd19845df28778e7da8;origin=https://github.com/jhpoelen/bat-taxonomic-alignment;visit=swh:1:snp:ed17e4d64ad333b0285669fd632ea53c84fd3d16;anchor=swh:1:rev:380935f37f3a4783ace2239baeb626d40366c669)
+
 ⚠️  work in progress ⚠️
 
 Aligning bat names across taxonomic authorities is a labor intensive task. 
