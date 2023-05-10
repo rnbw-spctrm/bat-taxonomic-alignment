@@ -91,7 +91,7 @@ Do you have questions or suggestions? Please [edit this page](https://github.com
     elem.style.color = agreementIndex > 0.75 ? "black" : "white"; 
   }
   
-  const pallette = [{ index: 1.0, text: "more aggreement" }, { index: 0.75, text: "" }, { index: 0.5, text: "" }, { index: 0.25, text: "" }, { index:  0, text: "less agreement"}];
+  const pallette = [{ index: 1.0, text: "more agreement" }, { index: 0.75, text: "" }, { index: 0.5, text: "" }, { index: 0.25, text: "" }, { index:  0, text: "less agreement"}];
   pallette.forEach(function(box) {
     var palletteBox = document.querySelector("#pallette").appendChild(document.createElement("div"));
     palletteBox.appendChild(document.createElement("div")).textContent = box.index.toFixed(1);    
