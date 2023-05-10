@@ -35,7 +35,7 @@ Do you have questions or suggestions? Please [edit this page](https://github.com
 <b>status: </b><span id="status">Agreement Index values calculating...</span>
 
 <figure>
-  <figcaption>Figure 1. <em>BTA Agreement Index using [viridis scale](https://github.com/politiken-journalism/scale-color-perceptual#readme).</em> Yellow/light colors indicate more agreement, green/dark shades indicate less agreement.</figcaption>
+  <figcaption>Figure 1. <em>BTA Agreement Index using <a href="https://github.com/politiken-journalism/scale-color-perceptual#readme">Viridis scale</a>.</em> Yellow/light colors indicate more agreement, green/dark shades indicate less agreement.</figcaption>
   <div id="pallette" style="display: flex; flex-direction: row;"></div>
 </figure>
 
