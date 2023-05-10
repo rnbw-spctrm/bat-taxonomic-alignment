@@ -30,7 +30,7 @@ Do you have questions or suggestions? Please [edit this page](https://github.com
 <b>status:</b><span id="status">Agreement Index values calculating...</span>
 
 <figure>
-  <figcaption>Figure 1. <em>A clickable heatmap containing all BTA concepts and their associated agreement index.</em> Yellow/light colors indicate more agreement, green/dark shades indicate less agreement.</em></figcaption>
+  <figcaption>Figure 1. <em>A clickable heatmap containing all BTA concepts and their associated agreement index.</em> Yellow/light colors indicate more agreement, green/dark shades indicate less agreement.</figcaption>
   <div id="map" style="display: flex; flex-direction: row; flex-wrap: wrap;"></div>
 </figure>
 <br/>
@@ -47,8 +47,12 @@ Do you have questions or suggestions? Please [edit this page](https://github.com
   <thead><th>treatmentId</th><th>agreementIndex</th><th>name</th><th>accordingTo</th></thead>
   <tbody>
 {%- for name in site.data.names %}
-{%- assign conceptId = name.treatmentId | split: ",L" | last | split: "." | first | prepend: "BTA_" %}
-    <tr id="{{ conceptId }}">
+{%- assign conceptId = name.treatmentId | split: ",L" | last | split: "." | first %}
+{%- assign backgroundColorId = conceptId | modulo: 2 %}
+{%- assign colors = "#cff0ff, #effaff" | split: ", " %}
+{%- assign color = colors[backgroundColorId] %}
+{%- assign conceptId = conceptId | prepend: "BTA_" %}
+    <tr id="{{ conceptId }}" style="background-color: {{ color }};">
 <td><a href="{{ name.treatmentId }}">{{ conceptId }}{{ name.treatmentId | split: "sha256/" | last | slice: 0,8 | prepend: "@" }}</a></td><td> <div class="{{ conceptId }}"/></td><td> <em>{{ name.scientificName }}</em></td><td> {{ name.accordingTo }}</td>
     </tr>
 {%- endfor %}
@@ -112,7 +116,7 @@ Do you have questions or suggestions? Please [edit this page](https://github.com
        square.setAttribute('title', 'click to jump to [' + item.conceptId + ']');
        square.addEventListener(
          "click", 
-         function () { console.log(item); document.querySelector('#' + item.conceptId).scrollIntoView(); }, 
+         function () { history.pushState({}, "", "#map"); document.querySelector('#' + item.conceptId).scrollIntoView(); }, 
          false
        );
     };
