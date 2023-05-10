@@ -21,24 +21,30 @@ The taxonomic boundaries of species and higher-level taxa change relatively freq
 
 Do you have questions or suggestions? Please [edit this page](https://github.com/jhpoelen/bat-taxonomic-alignment/edit/main/index.md), [join our weekly meeting](https://globalbioticinteractions.org/covid19), or [open an issue](https://github.com/jhpoelen/bat-taxonomic-alignment/issues/new).
 
-<table>
-  <caption>Table 1. <em>{{ BTA }} Resources in XSLX, Google sheet, TSV, CSV, and JSON-L formats.</em></caption>
-  <thead><th>name</th><th>description</th></thead>
-  <tbody id="resources">
+<table><caption>Table 1. <em>{{ BTA }} Resources in XSLX, Google sheet, TSV, CSV, and JSON-L formats.</em></caption><thead><th>name</th><th>description</th></thead>
+<tbody>
     <tr><td><a href="./bta.xlsx">bta.xlsx</a></td><td>in proprietary Excel format.</td></tr>
-    <tr><td><a href="https://docs.google.com/spreadsheets/d/1JSIr4GJX26LnF6WEl_jvrP6eAiRJc32XbIseeC_Y9DM">Google sheet</a><td>Read-only version hosted on Google sheets</td></tr>
+    <tr><td><a href="https://docs.google.com/spreadsheets/d/1JSIr4GJX26LnF6WEl_jvrP6eAiRJc32XbIseeC_Y9DM">Google sheet</a></td><td>Read-only version hosted on Google sheets</td></tr>
     <tr><td><a href="./bta.tsv">bta.tsv</a></td><td>as <a href="https://www.iana.org/assignments/media-types/text/tab-separated-values">Tab Separated Values</a></td></tr>
     <tr><td><a href="./bta.csv">bta.csv</a></td><td>as <a href="https://en.wikipedia.org/wiki/Comma-separated_values">Comma Seperated Values</a></td></tr>
     <tr><td><a href="./bta.json">bta.json</a></td><td>as <a href="https://jsonlines.org/">JSON Lines</a> format</td></tr>
+
   </tbody>
 </table>
 
 <b>status: </b><span id="status">Agreement Index values calculating...</span>
 
 <figure>
-  <figcaption>Figure 1. <em>A clickable heatmap containing all BTA concepts and their associated agreement index.</em> Yellow/light colors indicate more agreement, green/dark shades indicate less agreement.</figcaption>
+  <figcaption>Figure 1. <em>BTA Agreement Index using [viridis scale](https://github.com/politiken-journalism/scale-color-perceptual#readme).</em> Yellow/light colors indicate more agreement, green/dark shades indicate less agreement.</figcaption>
+  <div id="pallette" style="display: flex; flex-direction: row;"></div>
+</figure>
+
+
+<figure>
+  <figcaption>Figure 2. <em>A clickable heatmap containing all BTA concepts and their associated agreement index.</em> Yellow/light colors indicate more agreement, green/dark shades indicate less agreement.</figcaption>
   <div id="map" style="display: flex; flex-direction: row; flex-wrap: wrap;"></div>
 </figure>
+
 <br/>
 
 
@@ -84,6 +90,24 @@ Do you have questions or suggestions? Please [edit this page](https://github.com
     elem.style.background = viridis(agreementIndex);
     elem.style.color = agreementIndex > 0.75 ? "black" : "white"; 
   }
+  
+  const pallette = [{ index: 1.0, text: "more aggreement" }, { index: 0.75, text: "" }, { index: 0.5, text: "" }, { index: 0.25, text: "" }, { index:  0, text: "less agreement"}];
+  pallette.forEach(function(box) {
+    var palletteBox = document.querySelector("#pallette").appendChild(document.createElement("div"));
+    palletteBox.appendChild(document.createElement("div")).textContent = box.index.toFixed(1);    
+    if (box.text) { 
+       palletteBox.appendChild(document.createElement("div")).textContent = box.text;    
+    }
+
+    applyColorsForIndex(palletteBox, box.index);
+    palletteBox.style.height = "3em";
+    palletteBox.style.width = "10em";
+    palletteBox.style["vertical-align"] = "bottom";
+    palletteBox.style.align = "center";
+    palletteBox.style["justify-content"]= "space-between";
+
+
+  });
  
   var agreementIndex = concepts.forEach(function(concept) {
     const catalogNames = Object
@@ -146,7 +170,7 @@ Do you have questions or suggestions? Please [edit this page](https://github.com
        return accum }, [])
     .sort();
 
-  
+    
 
   document.querySelector('#matrixHeader').appendChild(document.createElement("th"));
  
