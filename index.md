@@ -41,7 +41,7 @@ Do you have questions or suggestions? Please [edit this page](https://github.com
 
 
 <figure>
-  <figcaption>Figure 2. <em>A clickable heatmap containing all BTA concepts and their associated agreement index.</em> Yellow/light colors indicate more agreement, green/dark shades indicate less agreement.</figcaption>
+  <figcaption>Figure 2. <em>A clickable heatmap containing all BTA concepts and their associated agreement index organized in no particular order.</em> Yellow/light colors indicate more agreement, green/dark shades indicate less agreement.</figcaption>
   <div id="map" style="display: flex; flex-direction: row; flex-wrap: wrap;"></div>
 </figure>
 
