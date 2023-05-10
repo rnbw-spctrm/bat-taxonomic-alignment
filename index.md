@@ -1,7 +1,15 @@
 ---
 layout: home
 ---
+
+⚠️  work in progress ⚠️
+
+# A Standardized Review of Bat Names Across Multiple Taxonomic Authorities
+
 by Aja Sherman, Cullen Geiselman, et al. 
+
+The taxonomic boundaries of species and higher-level taxa change relatively frequently as knowledge of population structure and evolutionary relationships improves, and older hypotheses are reframed. For the order Chiroptera (bats), valid names have long been assessed by multiple authorities, but differences among the resulting classifications largely remain unharmonized amongst authorities. We collected and aligned treatments across three primary taxonomic authorities for Chiroptera to create a single dynamic and versioned name translation tool. The resulting Bat Taxonomy Alignment will expedite future taxonomic assessments. The complexities uncovered in this alignment suggest the need for more explicit tracking of taxonomic concepts and usage of names in the future, particularly since biodiversity data (including hosts of zoonotic diseases) are cataloged and tracked using taxonomic names.
+
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7915722.svg)](https://doi.org/10.5281/zenodo.7915722) 
 
@@ -9,27 +17,24 @@ by Aja Sherman, Cullen Geiselman, et al.
 
 {%- assign BTA = site.data.names | first | map: "treatmentId" | split: "sha256/" | last | slice: 0,8 | prepend: "BTA@" %}
 
-⚠️  work in progress ⚠️
 
- name | description 
- ---  | ---
- [bta.xlsx](./bta.xlsx) | {{ BTA }} converted into Excel 
- [google sheet](https://docs.google.com/spreadsheets/d/1JSIr4GJX26LnF6WEl_jvrP6eAiRJc32XbIseeC_Y9DM/) | {{ BTA }} as read-only Google sheet
- [bta.tsv](./bta.tsv) | {{ BTA }} converted into [Tab Separated Values](https://www.iana.org/assignments/media-types/text/tab-separated-values)
- [bta.csv](./bta.csv) | {{ BTA }} converted into [Comma Seperated Values](https://en.wikipedia.org/wiki/Comma-separated_values)
- [bta.json](./bta.json) | {{ BTA }} as [JSON Lines](https://jsonlines.org/) format
-
-
-The table below is an exhaustive list of known bats and how they are named.
-
-The Bat Taxonomic Alignment (BTA) formulates "treatment" for each known bat. Each treatment has a unique id. You can get associated data in tab-separate values (TSV) for a treatment by clicking on their corresponding taxonomic id link. 
-
-The `name` and `accordingTo` columns contain a name as recognized by some name authority (e.g., batnames, MDD, HMW, MSW). Each treatment has multiple associates names from the various name authorities. Name values with `**` signify that a name authority appeared not to have a name for a particular treatment.
 
 Do you have questions or suggestions? Please [edit this page](https://github.com/jhpoelen/bat-taxonomic-alignment/edit/main/index.md), [join our weekly meeting](https://globalbioticinteractions.org/covid19), or [open an issue](https://github.com/jhpoelen/bat-taxonomic-alignment/issues/new).
 
+<table>
+  <caption>Table 1. <em>{{ BTA }} Resources in XSLX, Google sheet, TSV, CSV, and JSON-L formats.</em></caption>
+  <thead id="matrixHeader"><th>name</th><th>description</th>
+  </thead>
+  <tbody id="resources">
+    <tr><td><a href="./bta.xlsx">bta.xlsx</a></td><td>in proprietary Excel format.</td></tr>
+    <tr><td><a href="https://docs.google.com/spreadsheets/d/1JSIr4GJX26LnF6WEl_jvrP6eAiRJc32XbIseeC_Y9DM">Google sheet</a><td>Read-only version hosted on Google sheets</td></tr>
+    <tr><td><a href="./bta.tsv">bta.tsv</a></td><td>as <a href="https://www.iana.org/assignments/media-types/text/tab-separated-values">Tab Separated Values</a></td></tr>
+    <tr><td><a href="./bta.csv">bta.csv</a></td><td>as <a href="https://en.wikipedia.org/wiki/Comma-separated_values">Comma Seperated Values</a></td></tr>
+    <tr><td><a href="./bta.json">bta.json</a></td><td>as <a href="https://jsonlines.org/">JSON Lines</a> format</td></tr>
+  </tbody>
+</table>
 
-<b>status:</b><span id="status">Agreement Index values calculating...</span>
+<b>status: </b><span id="status">Agreement Index values calculating...</span>
 
 <figure>
   <figcaption>Figure 1. <em>A clickable heatmap containing all BTA concepts and their associated agreement index.</em> Yellow/light colors indicate more agreement, green/dark shades indicate less agreement.</figcaption>
@@ -39,12 +44,12 @@ Do you have questions or suggestions? Please [edit this page](https://github.com
 
 
 
-<table><caption>Table 1. <em>{{ BTA }} agreement matrix. Each cell indicates the number of concept <b>dis</b>agreements across catalog pairs. Total number of concepts in {{ BTA }} is <b><span id="totalConcepts">-</span></b>.</em> Yellow/light colors indicate more agreement, green/dark shades indicate less agreement.</caption><thead id="matrixHeader"></thead><tbody id="matrix"></tbody></table>
+<table><caption>Table 2. <em>{{ BTA }} agreement matrix. Each cell indicates the number of concept <b>dis</b>agreements across catalog pairs. Total number of concepts in {{ BTA }} is <b><span id="totalConcepts">-</span></b>.</em> Yellow/light colors indicate more agreement, green/dark shades indicate less agreement.</caption><thead id="matrixHeader"></thead><tbody id="matrix"></tbody></table>
 
 
 
 <table>
-  <caption>Table 2. <em>{{ BTA }} treatments, agreement index, and their associated names. The agreement index is ratio of the number of pairwise agreements for a concept versus the total number of possible pairwise agreements. Yellow/light colors indicate more agreement, green/dark shades indicate less agreement. Download table (minus agreement index) as <a href="https://raw.githubusercontent.com/jhpoelen/bat-taxonomic-alignment/main/_data/names.tsv">tsv</a>, <a href="https://raw.githubusercontent.com/jhpoelen/bat-taxonomic-alignment/main/_data/names.csv">csv</a>, or <a href="https://raw.githubusercontent.com/jhpoelen/bat-taxonomic-alignment/main/_data/names.json">json</a>.</em></caption>
+  <caption>Table 3. <em>{{ BTA }} treatments, agreement index, and their associated names. The agreement index is ratio of the number of pairwise agreements for a concept versus the total number of possible pairwise agreements. Yellow/light colors indicate more agreement, green/dark shades indicate less agreement. Download table (minus agreement index) as <a href="https://raw.githubusercontent.com/jhpoelen/bat-taxonomic-alignment/main/_data/names.tsv">tsv</a>, <a href="https://raw.githubusercontent.com/jhpoelen/bat-taxonomic-alignment/main/_data/names.csv">csv</a>, or <a href="https://raw.githubusercontent.com/jhpoelen/bat-taxonomic-alignment/main/_data/names.json">json</a>.</em></caption>
   <thead><th>treatmentId</th><th>agreementIndex</th><th>name</th><th>accordingTo</th></thead>
   <tbody>
 {%- for name in site.data.names %}
@@ -59,6 +64,9 @@ Do you have questions or suggestions? Please [edit this page](https://github.com
 {%- endfor %}
   </tbody>
 </table>
+
+
+
 
 
 <script src="assets/js/viridis.js"></script>
