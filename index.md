@@ -7,15 +7,17 @@ by Aja Sherman, Cullen Geiselman, et al.
 
 [![SWH](https://archive.softwareheritage.org/badge/swh:1:dir:9ba2b7ef8c75873d945ccfd19845df28778e7da8/)](https://archive.softwareheritage.org/swh:1:dir:9ba2b7ef8c75873d945ccfd19845df28778e7da8;origin=https://github.com/jhpoelen/bat-taxonomic-alignment;visit=swh:1:snp:ed17e4d64ad333b0285669fd632ea53c84fd3d16;anchor=swh:1:rev:380935f37f3a4783ace2239baeb626d40366c669)
 
+{%- assign BTA = site.data.names | first | map: "treatmentId" | split: "sha256/" | last | slice: 0,8 | prepend: "BTA@" %}
+
 ⚠️  work in progress ⚠️
 
  name | description 
  ---  | ---
- [bta.xlsx](./bta.xlsx) | description here
- [google sheet](https://docs.google.com/spreadsheets/d/1JSIr4GJX26LnF6WEl_jvrP6eAiRJc32XbIseeC_Y9DM/) | description here
- [bta.tsv](./bta.tsv) | description here
- [bta.csv](./bta.csv) | description here
- [bta.json](./bta.json) | description here
+ [bta.xlsx](./bta.xlsx) | {{ BTA }} converted into Excel 
+ [google sheet](https://docs.google.com/spreadsheets/d/1JSIr4GJX26LnF6WEl_jvrP6eAiRJc32XbIseeC_Y9DM/) | {{ BTA }} as read-only Google sheet
+ [bta.tsv](./bta.tsv) | {{ BTA }} converted into [Tab Separated Values](https://www.iana.org/assignments/media-types/text/tab-separated-values)
+ [bta.csv](./bta.csv) | {{ BTA }} converted into [Comma Seperated Values](https://en.wikipedia.org/wiki/Comma-separated_values)
+ [bta.json](./bta.json) | {{ BTA }} as [JSON Lines](https://jsonlines.org/) format
 
 
 The table below is an exhaustive list of known bats and how they are named.
@@ -36,7 +38,6 @@ Do you have questions or suggestions? Please [edit this page](https://github.com
 <br/>
 
 
-{%- assign BTA = site.data.names | first | map: "treatmentId" | split: "sha256/" | last | slice: 0,8 | prepend: "BTA@" %}
 
 <table><caption>Table 1. <em>{{ BTA }} agreement matrix. Each cell indicates the number of concept <b>dis</b>agreements across catalog pairs. Total number of concepts in {{ BTA }} is <b><span id="totalConcepts">-</span></b>.</em> Yellow/light colors indicate more agreement, green/dark shades indicate less agreement.</caption><thead id="matrixHeader"></thead><tbody id="matrix"></tbody></table>
 
