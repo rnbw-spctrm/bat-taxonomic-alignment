@@ -23,8 +23,7 @@ Do you have questions or suggestions? Please [edit this page](https://github.com
 
 <table>
   <caption>Table 1. <em>{{ BTA }} Resources in XSLX, Google sheet, TSV, CSV, and JSON-L formats.</em></caption>
-  <thead id="matrixHeader"><th>name</th><th>description</th>
-  </thead>
+  <thead><th>name</th><th>description</th></thead>
   <tbody id="resources">
     <tr><td><a href="./bta.xlsx">bta.xlsx</a></td><td>in proprietary Excel format.</td></tr>
     <tr><td><a href="https://docs.google.com/spreadsheets/d/1JSIr4GJX26LnF6WEl_jvrP6eAiRJc32XbIseeC_Y9DM">Google sheet</a><td>Read-only version hosted on Google sheets</td></tr>
