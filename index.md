@@ -6,7 +6,8 @@ layout: home
 
 # A Standardized Review of Bat Names Across Multiple Taxonomic Authorities
 
-by Aja Sherman, Cullen Geiselman, et al. 
+Cite as: 
+> Sherman, Aja, Geiselman, Cullen, Poelen, Jorrit, Simmons, Nancy, Reeder, DeeAnn, Upham, Nathan, & Phelps, Kendra. (2023). A Standardized Review of Bat Names Across Multiple Taxonomic Authorities (0.1) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.7915722
 
 The taxonomic boundaries of species and higher-level taxa change relatively frequently as knowledge of population structure and evolutionary relationships improves, and older hypotheses are reframed. For the order Chiroptera (bats), valid names have long been assessed by multiple authorities, but differences among the resulting classifications largely remain unharmonized amongst authorities. We collected and aligned treatments across three primary taxonomic authorities for Chiroptera to create a single dynamic and versioned name translation tool. The resulting Bat Taxonomy Alignment will expedite future taxonomic assessments. The complexities uncovered in this alignment suggest the need for more explicit tracking of taxonomic concepts and usage of names in the future, particularly since biodiversity data (including hosts of zoonotic diseases) are cataloged and tracked using taxonomic names.
 
