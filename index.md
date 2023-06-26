@@ -4,7 +4,7 @@ layout: home
 
 ⚠️  work in progress ⚠️
 
-# A Standardized Review of Bat Names Across Multiple Taxonomic Authorities
+# A Somewhat Standardized Review of Bat Names Across Multiple Taxonomic Authorities
 
 Cite as: 
 > Sherman, Aja, Geiselman, Cullen, Poelen, Jorrit, Simmons, Nancy, Reeder, DeeAnn, Upham, Nathan, & Phelps, Kendra. (2023). A Standardized Review of Bat Names Across Multiple Taxonomic Authorities (0.1) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.7915722
